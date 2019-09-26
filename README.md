@@ -2,6 +2,7 @@ Tests were run on a EPYC 7401p server with 128GB RAM and a SAMSUNG MZQLB1T9HAJR-
 
 System info/modified params:
 
+```
 [root@xx ~]# uname -a
 Linux xx 5.2.11-1.el7.elrepo.x86_64 #1 SMP Thu Aug 29 08:10:52 EDT 2019 x86_64 x86_64 x86_64 GNU/Linux
 
@@ -39,11 +40,14 @@ processManagement:
 net:
   port: 27017
   bindIp: 127.0.0.1
+```
 
 Dependencies:
- fmt - https://github.com/fmtlib/fmt
- tdigest - https://github.com/ajwerner/tdigestc
- mongo-c-driver - https://github.com/mongodb/mongo-c-driver
+ * fmt - https://github.com/fmtlib/fmt
+ * tdigest - https://github.com/ajwerner/tdigestc
+ * mongo-c-driver - https://github.com/mongodb/mongo-c-driver
 
 Compiled with:
+```
 [root@devel ~]# clang++ -o mongo.o -c -std=c++17 -fPIC -Wall -O3 -fomit-frame-pointer -I. -I/usr/include/libbson-1.0 -I/usr/include/libmongoc-1.0 mongo.cpp
+```
