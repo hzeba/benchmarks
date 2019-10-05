@@ -1,6 +1,5 @@
 #include <random>
 #include <set>
-#include <chrono>
 
 #include <cassert>
 
@@ -11,39 +10,10 @@
 #include "stats.h"
 
 
-struct clock
-{
-    using duration =
-            std::chrono::nanoseconds;
-
-    using rep =
-            duration::rep;
-
-    using period =
-            duration::period;
-
-    using time_point =
-            std::chrono::time_point<clock, duration>;
-
-    static constexpr bool is_steady{true};
-
-    static time_point now() noexcept
-    {
-        timespec tp;
-
-        clock_gettime(CLOCK_MONOTONIC, &tp);
-
-        return time_point(duration(std::chrono::seconds(tp.tv_sec) +
-                                   std::chrono::nanoseconds(tp.tv_nsec)));
-    }
-};
-
-
 struct reader
 {
     std::set<uint64_t>::iterator iterator;
     std::set<uint64_t>::iterator end;
-    uint64_t value{0};
 };
 
 
@@ -83,8 +53,6 @@ void update_thread(const std::string_view& uri,                 // << mongodb://
 
         reader r{.iterator = key_set.begin(), .end = key_set.end()};
 
-        r.value = *r.iterator;
-
         mongoc_bulk_operation_t* bulk_op = mongoc_collection_create_bulk_operation_with_opts(collection,
                                                                                              nullptr);
         assert(bulk_op != nullptr);
@@ -115,8 +83,6 @@ void update_thread(const std::string_view& uri,                 // << mongodb://
             {
                 break;
             }
-
-            r.value = *r.iterator;
         }
 
         auto t1 = clock::now();

@@ -7,6 +7,8 @@
 #include <cmath>
 #include <vector>
 
+#include "clock.h"
+
 
 namespace tests {
 
