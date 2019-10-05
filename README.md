@@ -30,3 +30,17 @@ MongoDB test compiles with:
 ```
 
 ![MongoDB results](mongo_results.png?raw=true "MongoDB results")
+
+ScyllaDB Dependencies:
+ * fmt - https://github.com/fmtlib/fmt
+ * tdigest - https://github.com/ajwerner/tdigestc
+ * datastax cpp driver
+   - https://downloads.datastax.com/cpp-driver/centos/7/cassandra/v2.13.0/cassandra-cpp-driver-devel-2.13.0-1.el7.x86_64.rpm
+   - https://downloads.datastax.com/cpp-driver/centos/7/cassandra/v2.13.0/cassandra-cpp-driver-2.13.0-1.el7.x86_64.rpm
+
+ScyllaDB test compiles with:
+```
+[root@devel ~]# clang++ -o scylla.o -c -std=c++17 -fPIC -Wall -O3 -fomit-frame-pointer -I. scylla.cpp
+```
+
+![ScyllaDB results](scylla_results.png?raw=true "ScyllaDB results")
