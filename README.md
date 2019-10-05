@@ -1,6 +1,6 @@
 # About
 
-Tests were run on a EPYC 7401p server with 128GB RAM and a SAMSUNG MZQLB1T9HAJR-00007 NVMe running CentOS 7. Data partition used was formatted as ext4 (journaling disabled). Server process was limited to one cpu (via docker's --cpuset-cpus option). Host networking was used on server's docker container. Clients were bound to a specific cpu running on the host via pthread_setaffinity_np(). CLOCK_MONOTONIC was used for measurements.
+Tests were run on a EPYC 7401p server with 128GB RAM and a SAMSUNG MZQLB1T9HAJR-00007 NVMe running CentOS 7. Data partition used was formatted as ext4 (journaling disabled). Server process was limited to one cpu (via docker's --cpuset-cpus option). Host networking was used on server's docker container. Clients were bound to a specific cpu running on the host via pthread_setaffinity_np(). CLOCK_MONOTONIC was used for measurements. Updating was done from one process while fetching was done from two.
 
 System info/modified params:
 
