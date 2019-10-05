@@ -33,6 +33,11 @@ Test compiles with:
 [root@devel ~]# clang++ -o mongo.o -c -std=c++17 -fPIC -Wall -O3 -fomit-frame-pointer -I. -I/usr/include/libbson-1.0 -I/usr/include/libmongoc-1.0 mongo.cpp
 ```
 
+Command:
+```
+[root@xx /]# mongod --config /data/mongod.conf
+```
+
 Results:
 ![MongoDB results](mongo_results.png?raw=true "MongoDB results")
 
@@ -48,6 +53,11 @@ Dependencies:
 Test compiles with:
 ```
 [root@devel ~]# clang++ -o scylla.o -c -std=c++17 -fPIC -Wall -O3 -fomit-frame-pointer -I. scylla.cpp
+```
+
+Command:
+```
+[root@xx /]# scylla --options-file /data/scylla.yaml -c 1 --cpuset 1 --num-io-queues 1 --max-io-requests 32
 ```
 
 Results:
