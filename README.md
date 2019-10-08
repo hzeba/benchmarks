@@ -62,3 +62,8 @@ Command:
 
 Results:
 ![ScyllaDB results](scylla_results.png?raw=true "ScyllaDB results")
+
+# TyrDB
+
+Results:
+![TyrDB results](tyrdb_results.png?raw=true "TyrDB results")
