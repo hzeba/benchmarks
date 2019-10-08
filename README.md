@@ -21,7 +21,7 @@ BOOT_IMAGE=/vmlinuz-5.2.11-1.el7.elrepo.x86_64 root=xx ro biosdevname=0 crashker
 always madvise [never]
 ```
 
-# MongoDB
+# MongoDB 4.2
 
 Dependencies:
  * fmt - https://github.com/fmtlib/fmt
@@ -41,7 +41,7 @@ Command:
 Results:
 ![MongoDB results](mongo_results.png?raw=true "MongoDB results")
 
-# ScyllaDB
+# ScyllaDB 3.0.10
 
 Dependencies:
  * fmt - https://github.com/fmtlib/fmt
